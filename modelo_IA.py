@@ -124,6 +124,10 @@ def plot_maze(maze, path):
 # Executar
 maze = generate_maze()
 path, energy_left = astar(maze)
-plot_maze(maze, path if path else [])
-print(f"Caminho percorrido: {path}")
-print(f"Passos: {len(path) if path else 0}, Energia restante: {energy_left}")
+if path:
+    plot_maze(maze, path)
+    print(f"Caminho percorrido: {path}")
+    print(f"Passos: {len(path)}, Energia restante: {energy_left}")
+else:
+    plot_maze(maze, [])
+    print("Labirinto gerado é impossível de ser resolvido")
